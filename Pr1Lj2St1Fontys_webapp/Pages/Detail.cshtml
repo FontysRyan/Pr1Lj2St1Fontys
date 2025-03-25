@@ -1,0 +1,22 @@
+﻿@page
+@model Pr1Lj2St1Fontys_webapp.Pages.DetailModel
+@{
+    ViewData["Title"] = "Event Detail";
+}
+
+<h1 class="text-center">@Model.Event.Activiteit</h1>
+
+<div class="event-details">
+    <p><strong>Beschrijving:</strong> @Model.Event.Beschrijving</p>
+    <p><strong>Benodigdheden:</strong> @Model.Event.Benodigdheden</p>
+    <p><strong>Start Datum & Tijd:</strong> @Model.Event.StartDatumTijd</p>
+    <p><strong>Eind Datum & Tijd:</strong> @Model.Event.EindDatumTijd</p>
+    <p><strong>Locatie:</strong> @Model.Event.Locatie</p>
+
+    @if (!string.IsNullOrEmpty(Model.Event.AfbeeldingURL))
+    {
+        <img src="@Model.Event.AfbeeldingURL" alt="Event Image" style="width: 100%; height: auto;" />
+    }
+</div>
+
+<a class="btn btn-primary" href="/overzicht">Terug naar Overzicht</a>

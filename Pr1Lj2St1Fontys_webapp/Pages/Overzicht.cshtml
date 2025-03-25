@@ -1,0 +1,20 @@
+﻿@page
+@model Pr1Lj2St1Fontys_webapp.Pages.OverzichtModel
+@{
+    ViewData["Title"] = "Overzicht";
+}
+
+<h1 class="text-center">Evenementen Overzicht</h1>
+
+<div class="grid-container">
+    @foreach (var item in Model.Evenementen)
+    {
+        <div class="event-card">
+            <h2>@item.Activiteit</h2>
+            <p><strong>Datum & Tijd:</strong> @item.StartDatumTijd</p>
+            <p><strong>Locatie:</strong> @item.Locatie</p>
+            <a class="btn-details" href="/Detail?id=@item.EventID">Meer info</a>
+        </div>
+    }
+</div>
+
