@@ -6,14 +6,16 @@
 <header>
     <h1 class="text-center">Evenementen Overzicht</h1>
 </header>
+
 <!-- Hero Image Section -->
 <div class="hero-image">
     <img src="https://picsum.photos/1200/400" alt="Hero Image" class="hero-image">
 </div>
 
-
 <div class="grid-container">
-    @foreach (var item in Model.Evenementen)
+    @foreach (var item in Model.Evenementen
+			.Where(e => e.StartDatumTijd > DateTime.Now) // Only events that are not past date
+			.OrderBy(e => e.StartDatumTijd)) // Sort from old to new, so oldest event is first
     {
         <div class="event-card">
             <h2>@item.Activiteit</h2>
@@ -23,6 +25,3 @@
         </div>
     }
 </div>
-
-
-
