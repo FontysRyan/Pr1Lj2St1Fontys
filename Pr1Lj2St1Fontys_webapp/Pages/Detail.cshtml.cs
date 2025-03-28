@@ -20,13 +20,13 @@ namespace Pr1Lj2St1Fontys_webapp.Pages
 
         public async Task OnGetAsync(int id)
         {
-            // Haal het evenement op op basis van EventID
-            Event = await _context.Events.FirstOrDefaultAsync(e => e.EventID == id);
+            
+            Event = await _context.Events.FirstOrDefaultAsync(e => e.EventID == id); // Get events based on EventId
 
             if (Event == null)
             {
-                // Als het evenement niet gevonden is, kun je een 404-pagina tonen of een andere logica toevoegen
-                RedirectToPage("/Error");
+                RedirectToPage("/Error"); // If no event found, can redirect to error page or show a message
+
             }
         }
     }

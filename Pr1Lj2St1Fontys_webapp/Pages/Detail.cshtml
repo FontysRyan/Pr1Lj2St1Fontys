@@ -4,19 +4,31 @@
     ViewData["Title"] = "Event Detail";
 }
 
-<h1 class="text-center">@Model.Event.Activiteit</h1>
+<div class="container mt-5">
+    <h1 class="text-center text-primary">@Model.Event.Activiteit</h1>
 
-<div class="event-details">
-    <p><strong>Beschrijving:</strong> @Model.Event.Beschrijving</p>
-    <p><strong>Benodigdheden:</strong> @Model.Event.Benodigdheden</p>
-    <p><strong>Start Datum & Tijd:</strong> @Model.Event.StartDatumTijd</p>
-    <p><strong>Eind Datum & Tijd:</strong> @Model.Event.EindDatumTijd</p>
-    <p><strong>Locatie:</strong> @Model.Event.Locatie</p>
+    <div class="event-details">
+        <div class="text-content">
+            <p><strong>Beschrijving:</strong> @Model.Event.Beschrijving</p>
+            <p><strong>Benodigdheden:</strong> @Model.Event.Benodigdheden</p>
+            <p><strong>Start:</strong> @Model.Event.StartDatumTijd</p>
+            <p<strong>Einde:</strong> @Model.Event.EindDatumTijd</p>
+            <p><strong>Locatie:</strong> @Model.Event.Locatie</p>
+            
+            <div class="">
+                <a class="btn btn-primary btn-lg shadow" href="/overzicht">
+                    <i class="bi bi-arrow-left"></i> Terug naar Overzicht
+                </a>
+            </div>
+        </div>
 
-    @if (!string.IsNullOrEmpty(Model.Event.AfbeeldingURL))
-    {
-        <img src="@Model.Event.AfbeeldingURL" alt="Event Image" style="width: 100%; height: auto;" />
-    }
+        <div class="image-content">
+            @if (!string.IsNullOrEmpty(Model.Event.AfbeeldingURL))
+            {
+                <div class="text-center mt-3">
+                    <img src="@Model.Event.AfbeeldingURL" alt="Event Image" class="img-fluid rounded shadow" style="max-width: 50%; height: auto;" />
+                </div>
+            }
+        </div>
+    </div>
 </div>
-
-<a class="btn btn-primary" href="/overzicht">Terug naar Overzicht</a>

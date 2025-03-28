@@ -3,8 +3,14 @@
 @{
     ViewData["Title"] = "Overzicht";
 }
+<header>
+    <h1 class="text-center">Evenementen Overzicht</h1>
+</header>
+<!-- Hero Image Section -->
+<div class="hero-image">
+    <img src="https://picsum.photos/1200/400" alt="Hero Image" class="hero-image">
+</div>
 
-<h1 class="text-center">Evenementen Overzicht</h1>
 
 <div class="grid-container">
     @foreach (var item in Model.Evenementen)
@@ -17,4 +23,6 @@
         </div>
     }
 </div>
+
+
 

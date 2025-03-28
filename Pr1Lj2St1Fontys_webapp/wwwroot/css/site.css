@@ -1,5 +1,20 @@
-html {
+/* Color settings */
+:root {
+    --primary-color: #6B8E23;
+    --secondary-color: #A4B465;
+    --accent-color: #FFD700;
+    --hover-color: #FF6347;
+    --text-color: #e9ecf2;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Base Styles */
+html, body {
     font-size: 14px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
 }
 
 @media (min-width: 768px) {
@@ -8,27 +23,127 @@ html {
     }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-    position: relative;
-    min-height: 100%;
-}
-
 body {
-    margin-bottom: 60px;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    flex: 1;
 }
 
+h1 {
+    color: var(--text-color);
+}
 
-/*Below you canvas find small custom css form my project
-*/
+/* Layout */
+.container {
+    flex: 1;
+}
+
+/* Navbar */
 .navbar {
-    background-color: #6B8E23;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--text-color);
 }
 
+    .navbar .navbar-brand {
+        color: var(--text-color); /* Ensure brand text is white */
+    }
+
+
+
+.navbar-nav .nav-link {
+    color: var(--text-color); /* Navigation text color */
+}
+
+    .navbar-nav .nav-link:hover {
+        color: var(--hover-color); /* Navigation hover color */
+    }
+
+/* Buttons */
+.btn-primary {
+    color: #fff;
+    background-color: var(--primary-color);
+    border-color: #1861ac;
+}
+
+.btn-details {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: var(--accent-color);
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+    .btn-details:hover {
+        background-color: var(--hover-color);
+        color: var(--text-color);
+    }
+
+/* Event Cards */
+.event-card {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 2px 2px 10px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* Event Details */
+.event-details {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px var(--shadow-color);
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+    .event-details .text-content {
+        flex: 1;
+        margin-right: 10px;
+    }
+
+    .event-details .image-content {
+        flex: 1;
+        border-radius: 2px;
+    }
+
+        .event-details .image-content img {
+            border: 2px solid var(--text-color);
+            border-radius: 5px;
+            max-width: 100%;
+            height: auto;
+        }
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 10px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* Hero Image */
+.hero-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Grid Layout */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -36,39 +151,28 @@ body {
     padding: 20px;
 }
 
-.event-card {
-    background-color: #6B8E23;
-    color: white;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* This pushes the button to the bottom */
-    height: 100%; /* Allow the card to grow with content */
+/* Borders */
+.border-top {
+    border-top: 1px solid #e5e5e5;
 }
 
-
-
-h1 {
-    color: white;
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
 }
 
-.btn-details {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 12px;
-    background-color: #FFD700;
-    color: black;
-    text-decoration: none;
-    border-radius: 5px;
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-body {
-    background: #A4B465;
+/* Footer always at the bottom */
+.footer {
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
 }
-    .btn-details:hover {
-        background-color: #FF6347; /* Light red */
-        color: white;
-    }
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
