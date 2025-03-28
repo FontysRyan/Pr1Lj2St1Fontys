@@ -8,20 +8,42 @@
 </header>
 
 <!-- Hero Image Section -->
+<!-- https://picsum.photos/images#1 -->
 <div class="hero-image">
-    <img src="https://picsum.photos/1200/400" alt="Hero Image" class="hero-image">
+    <img id="heroImage" src="https://picsum.photos/id/469/1200/400" alt="Hero Image" class="hero-image">
 </div>
 
 <div class="grid-container">
     @foreach (var item in Model.Evenementen
-			.Where(e => e.StartDatumTijd > DateTime.Now) // Only events that are not past date
-			.OrderBy(e => e.StartDatumTijd)) // Sort from old to new, so oldest event is first
+			.Where(e => e.StartDatumTijd > DateTime.Now) // Only show future events
+			.OrderBy(e => e.StartDatumTijd)) // Sort by date ascending, oldest first
     {
         <div class="event-card">
             <h2>@item.Activiteit</h2>
-            <p><strong>Datum & Tijd:</strong> @item.StartDatumTijd</p>
+            <p><strong>Datum & tijd:</strong> @item.StartDatumTijd</p>
             <p><strong>Locatie:</strong> @item.Locatie</p>
             <a class="btn-details" href="/Detail?id=@item.EventID">Meer info</a>
         </div>
     }
 </div>
+
+<script>
+    
+    const images = [ // List of images
+        "https://picsum.photos/id/469/1200/469",
+        "https://picsum.photos/id/585/1200/585",
+        "https://picsum.photos/id/446/1200/400",
+        
+    ];
+
+    let currentImageIndex = 0;
+    const heroImage = document.getElementById("heroImage");
+
+    function changeHeroImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        heroImage.src = images[currentImageIndex];
+    }
+
+
+    setInterval(changeHeroImage, 5000); // Change image after 5 seconds
+</script>
