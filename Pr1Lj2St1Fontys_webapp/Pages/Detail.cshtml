@@ -5,20 +5,25 @@
 }
 
 <div class="container mt-5">
-    <h1 class="text-center text-primary">@Model.Event.Activiteit</h1>
 
     <div class="event-details">
         <div class="text-content">
-            <p><strong>Beschrijving:</strong> @Model.Event.Beschrijving</p>
-            <p><strong>Benodigdheden:</strong> @Model.Event.Benodigdheden</p>
-            <p><strong>Start:</strong> @Model.Event.StartDatumTijd</p>
-            <p<strong>Einde:</strong> @Model.Event.EindDatumTijd</p>
-            <p><strong>Locatie:</strong> @Model.Event.Locatie</p>
+            <h1 class="">@Model.Event.Activiteit</h1>
+
+            <h5><strong>Beschrijving:</strong></h5>
+            <p>@Model.Event.Beschrijving</p>
+            <h5><strong>Benodigdheden:</strong></h5>
+			<p>@Model.Event.Benodigdheden</p>
+            <h5><strong>Start:</strong></h5>
+			<p>@Model.Event.StartDatumTijd</p>
+            <h5><strong>Einde:</strong></h5>
+			<p>@Model.Event.EindDatumTijd</p>
+            <h5><strong>Locatie:</strong> </h5>
+			<p>@Model.Event.Locatie</p>
             
             <div class="">
-                <a class="btn btn-primary btn-lg shadow" href="/overzicht">
-                    <i class="bi bi-arrow-left"></i> Terug naar Overzicht
-                </a>
+                <a class="btn-details" href="/overzicht">Terug naar het overzicht scherm</a>
+
             </div>
         </div>
 
