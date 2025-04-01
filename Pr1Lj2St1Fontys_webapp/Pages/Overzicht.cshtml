@@ -14,9 +14,7 @@
 </div>
 
 <div class="grid-container">
-    @foreach (var item in Model.Evenementen
-			.Where(e => e.StartDatumTijd > DateTime.Now) // Only show future events
-			.OrderBy(e => e.StartDatumTijd)) // Sort by date ascending, oldest first
+    @foreach (var item in Model.Evenementen)
     {
         <div class="event-card">
             <h2>@item.Activiteit</h2>
