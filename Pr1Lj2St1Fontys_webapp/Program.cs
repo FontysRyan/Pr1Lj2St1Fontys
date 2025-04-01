@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using Pr1Lj2St1Fontys_webapp.Data; // Zorg dat je Data map en ApplicationDbContext bestaat!
+using Pr1Lj2St1Fontys_webapp.Data; // Used this namespace to have access to the ApplicationDbContext.cs
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Voeg de database toe met een connectiestring
+// Use the connection string from appsettings.json to connect to the database 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -25,7 +25,7 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
 
-//  redirect to /overzicht pagina 
+//  redirect to /overzicht pagina when starting application
 app.MapGet("/", async context =>
 {
     context.Response.Redirect("/overzicht");
