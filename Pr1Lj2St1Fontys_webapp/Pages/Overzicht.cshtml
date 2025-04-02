@@ -3,24 +3,27 @@
 @{
     ViewData["Title"] = "Overzicht";
 }
+
 <header>
-    <h1 class="text-center">Evenementen Overzicht</h1>
+    <div class="hero-container content-animation">
+        <div class="hero-overlay"></div>
+        <img id="heroImageAnimation" src="https://picsum.photos/id/469/1200/400" alt="Hero Image" class="hero-image fade-in">
+        <div class="hero-text">
+            <h1>Ontdek de beste sportevenementen</h1>
+            <p>Blijf op de hoogte van aankomende evenementen bij jou in de buurt.</p>
+            <a href="#evenementen" class="btn-details">Bekijk Evenementen</a>
+        </div>
+    </div>
 </header>
 
-<!-- Hero Image Section -->
-<!-- https://picsum.photos/images#1 -->
-<div class="hero-image">
-    <img id="heroImage" src="https://picsum.photos/id/469/1200/400" alt="Hero Image" class="hero-image">
-</div>
-
-<div class="grid-container">
+<div class="grid-container-sportevents content-animation" id="evenementen">
     @foreach (var item in Model.Evenementen)
     {
         <div class="event-card">
             <h2>@item.Activiteit</h2>
-            <h5><strong>Datum & tijd:</strong> </h5>
+            <h5><strong>Datum & tijd:</strong></h5>
             <p>@item.StartDatumTijd</p>
-            <h5><strong>Locatie:</strong> </h5>
+            <h5><strong>Locatie:</strong></h5>
             <p>@item.Locatie</p>
             <a class="btn-details" href="/Detail?id=@item.EventID">Meer info</a>
         </div>
@@ -28,22 +31,23 @@
 </div>
 
 <script>
-    
-    const images = [ // List of images
-        "https://picsum.photos/id/469/1200/469",
-        "https://picsum.photos/id/585/1200/585",
+    const images = [
+        "https://picsum.photos/id/469/1200/400",
+        "https://picsum.photos/id/773/1200/400",
         "https://picsum.photos/id/446/1200/400",
-        
     ];
 
     let currentImageIndex = 0;
-    const heroImage = document.getElementById("heroImage");
+    const heroImage = document.getElementById("heroImageAnimation");
 
     function changeHeroImage() {
         currentImageIndex = (currentImageIndex + 1) % images.length;
-        heroImage.src = images[currentImageIndex];
+        setTimeout(() => {
+            heroImage.src = images[currentImageIndex];
+        }, 300);
     }
 
-
-    setInterval(changeHeroImage, 5000); // Change image after 5 seconds
+    setInterval(changeHeroImage, 5000);
 </script>
+
+
